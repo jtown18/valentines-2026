@@ -152,7 +152,7 @@ export function ValentineSection() {
 
   if (formSubmitted) {
     return (
-      <section className="relative px-6 py-40">
+      <section className="relative px-6 pt-40 pb-80">
         <div className="mx-auto max-w-5xl text-center">
           <TextReveal
             text="Perfect! Can't wait! 💕"
@@ -169,7 +169,7 @@ export function ValentineSection() {
 
   if (answered) {
     return (
-      <section className="relative px-6 py-40">
+      <section className="relative px-6 pt-15 pb-30">
         <div
           ref={confettiRef}
           className="pointer-events-none absolute inset-0"
@@ -301,7 +301,7 @@ export function ValentineSection() {
   }
 
   return (
-    <section className="px-6 py-40">
+    <section className="px-6 pt-40 pb-80">
       <div className="mx-auto max-w-5xl text-center">
         <h2 className="mb-12 text-4xl font-bold md:text-5xl lg:text-6xl">
           Will you still be my valentine
