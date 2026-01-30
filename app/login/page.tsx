@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function LoginPage() {
   const [secretCode, setSecretCode] = useState("");
@@ -51,10 +52,13 @@ export default function LoginPage() {
     <div className="min-h-screen flex">
       {/* Left Side - Decorative */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
-        <img
+        <Image
           src="/images/donkey.jpg"
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="50vw"
+          className="object-cover"
         />
       </div>
 
@@ -62,7 +66,7 @@ export default function LoginPage() {
       <div className="w-full lg:w-1/2 flex items-center justify-center bg-background px-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-2">Welcome</h2>
+            <h2 className="text-3xl font-bold mb-2">Hi!</h2>
             <p className="text-muted-foreground">
               Enter your secret code to continue
             </p>
@@ -120,10 +124,10 @@ export default function LoginPage() {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  <span>Logging in...</span>
+                  <span>Checking...</span>
                 </>
               ) : (
-                "Login"
+                "Continue"
               )}
             </button>
           </form>
