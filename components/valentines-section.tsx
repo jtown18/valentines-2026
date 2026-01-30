@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { TextReveal } from "@/components/text-reveal";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import gsap from "gsap";
 
 export function ValentineSection() {
@@ -159,9 +160,11 @@ export function ValentineSection() {
             className="text-3xl font-medium leading-snug text-red-500 md:text-4xl lg:text-5xl"
             staggerDelay={0.03}
           />
-          <p className="mt-8 text-xl text-muted-foreground animate-pulse">
-            See you then! ❤️
-          </p>
+          <TextReveal
+            text="See you then! ❤️"
+            className="mt-8 text-xl text-muted-foreground"
+            staggerDelay={0.04}
+          />
         </div>
       </section>
     );
@@ -175,12 +178,16 @@ export function ValentineSection() {
           className="pointer-events-none absolute inset-0"
         />
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-8 text-center text-4xl font-bold text-red-500">
-            Yay! 💕
-          </h2>
-          <p className="mb-12 text-center text-xl text-muted-foreground">
-            Let's plan our special day!
-          </p>
+          <TextReveal
+            text="Yay! 💕"
+            className="mb-8 text-center text-4xl font-bold text-red-500"
+            staggerDelay={0.05}
+          />
+          <TextReveal
+            text="Let's plan our special day!"
+            className="mb-12 text-center text-xl text-muted-foreground"
+            staggerDelay={0.04}
+          />
 
           <div ref={formRef}>
             <form onSubmit={handleFormSubmit} className="space-y-6">
@@ -260,39 +267,47 @@ export function ValentineSection() {
                 />
               </div>
 
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full rounded-full bg-red-500 px-12 py-4 text-xl font-bold text-white transition-colors hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              <ScrollReveal
+                direction="up"
+                duration={0.7}
+                delay={0.3}
+                distance={20}
+                scale={0.98}
               >
-                {isLoading ? (
-                  <>
-                    <svg
-                      className="animate-spin h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  "Submit"
-                )}
-              </button>
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full rounded-full bg-red-500 px-12 py-4 text-xl font-bold text-white transition-colors hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {isLoading ? (
+                    <>
+                      <svg
+                        className="animate-spin h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    "Submit"
+                  )}
+                </button>
+              </ScrollReveal>
             </form>
           </div>
         </div>
@@ -304,33 +319,55 @@ export function ValentineSection() {
     <section className="px-6 pt-40 pb-80">
       <div className="mx-auto max-w-5xl text-center">
         <h2 className="mb-12 text-4xl font-bold md:text-5xl lg:text-6xl">
-          Will you still be my valentine
-          <br />
-          <span className="text-red-500">this year?</span> 💝
+          <TextReveal
+            text="Will you still be my valentine"
+            className="leading-tight"
+            staggerDelay={0.05}
+          />
+          <TextReveal
+            text="this year? 💝"
+            className="mt-2 text-red-500"
+            staggerDelay={0.05}
+          />
         </h2>
 
-        <div className="relative mt-16 flex items-center justify-center gap-8">
-          <button
-            ref={yesButtonRef}
-            onClick={handleYesClick}
-            className="rounded-full bg-red-500 px-12 py-4 text-xl font-bold text-white transition-colors hover:bg-red-600"
-          >
-            Yes!
-          </button>
+        <ScrollReveal
+          direction="up"
+          duration={0.9}
+          delay={0.1}
+          distance={40}
+          scale={0.97}
+        >
+          <div className="relative mt-16 flex items-center justify-center gap-8">
+            <button
+              ref={yesButtonRef}
+              onClick={handleYesClick}
+              className="rounded-full bg-red-500 px-12 py-4 text-xl font-bold text-white transition-colors hover:bg-red-600"
+            >
+              Yes!
+            </button>
 
-          <button
-            ref={noButtonRef}
-            onClick={handleNoClick}
-            className="relative rounded-full bg-muted px-12 py-4 text-xl font-bold text-foreground transition-colors hover:bg-muted/80"
-          >
-            {noButtonTexts[noClickCount]}
-          </button>
-        </div>
+            <button
+              ref={noButtonRef}
+              onClick={handleNoClick}
+              className="relative rounded-full bg-muted px-12 py-4 text-xl font-bold text-foreground transition-colors hover:bg-muted/80"
+            >
+              {noButtonTexts[noClickCount]}
+            </button>
+          </div>
+        </ScrollReveal>
 
-        <p className="mt-8 text-sm text-muted-foreground">
-          {noClickCount > 3 &&
-            "The Yes button is getting bigger for a reason 👀"}
-        </p>
+        <ScrollReveal direction="up" duration={0.7} delay={0.2} distance={24}>
+          {noClickCount > 3 ? (
+            <TextReveal
+              text="The Yes button is getting bigger for a reason 👀"
+              className="mt-8 text-sm text-muted-foreground"
+              staggerDelay={0.03}
+            />
+          ) : (
+            <div className="mt-8" />
+          )}
+        </ScrollReveal>
       </div>
     </section>
   );
